@@ -103,22 +103,17 @@ function buildAndShowHomeHTML (categories) {
   return categories[randomIndex];
 }
 
-function handleResponse(responseText) {
 
-  // ❗ ОБЯЗАТЕЛЬНО — объявляем html
-  var html = responseText;
+     var randomCategory = chooseRandomCategory(categories);
+var randomCategoryShortName = "'" + randomCategory.short_name + "'";
+     var html = homeHtml;
+      var html = responseText;
 
-  // ❗ categories уже должны быть загружены ранее
-  var randomCategory = chooseRandomCategory(categories);
-
-  // ❗ без лишних кавычек
-  var randomCategoryShortName = randomCategory.short_name;
-
-  // ❗ вставляем значение в HTML
-  html = insertProperty(html, "randomCategoryShortName", randomCategoryShortName);
-
-  // ❗ выводим на страницу
-  document.querySelector("#main-content").innerHTML = html;
+      html = insertProperty(html,
+  "randomCategoryShortName",
+  randomCategoryShortName);
+    },
+    false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
 }
 
 // Given array of category objects, returns a random category object.
