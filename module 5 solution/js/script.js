@@ -106,7 +106,7 @@ function buildAndShowHomeHTML (categories) {
 
      var randomCategory = chooseRandomCategory(categories);
 var randomCategoryShortName = "'" + randomCategory.short_name + "'";
-
+     var html = homeHtml; 
 
       html = insertProperty(html,
   "randomCategoryShortName",
