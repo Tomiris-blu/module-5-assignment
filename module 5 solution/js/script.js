@@ -97,10 +97,14 @@ function buildAndShowHomeHTML (categories) {
     function (homeHtml) {
 
       // STEP 2
-      var randomCategory = chooseRandomCategory(categories);
+      function chooseRandomCategory(categories) {
+  var randomIndex = Math.floor(Math.random() * categories.length);
+  return categories[randomIndex];
+}
 
       // STEP 3
-      var randomCategoryShortName = "'" + randomCategory.short_name + "'";
+     var randomCategory = chooseRandomCategory(categories);
+var randomCategoryShortName = "'" + randomCategory.short_name + "'";
 
       homeHtml = insertProperty(
         homeHtml,
@@ -109,7 +113,9 @@ function buildAndShowHomeHTML (categories) {
       );
 
       // STEP 4
-      insertHtml("#main-content", homeHtml);
+     html = insertProperty(html,
+  "randomCategoryShortName",
+  randomCategoryShortName);
 
     },
     false);
